@@ -159,7 +159,6 @@ export interface CanvasRef {
   getSvg: () => string;
 }
 
-
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 const styles = StyleSheet.create({

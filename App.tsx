@@ -18,7 +18,7 @@ import {
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
-import Canvas, { CanvasRef } from './src/components/Canvas';
+import Canvas from './src/components/Canvas';
 
 import type { PropsWithChildren } from 'react';
 
@@ -29,7 +29,7 @@ type SectionProps = PropsWithChildren<{
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const canvasRef = useRef<CanvasRef>(null);
-  const [svg, setSvg] = useState(null);
+  const [svg, setSvg] = useState<string>();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -37,8 +37,7 @@ function App(): React.JSX.Element {
 
   const saveSvg = () => {
     const s = canvasRef.current?.getSvg();
-    console.log(s);
-    
+    setSvg(s)
   };
 
   const handleClear = () => {
